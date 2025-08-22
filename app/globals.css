@@ -1,6 +1,9 @@
 @import "tailwindcss";
 @import "tw-animate-css";
 
+/* Add Google Fonts and hero-specific utility classes */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Playfair+Display:wght@600;700&display=swap');
+
 @custom-variant dark (&:is(.dark *));
 
 :root {
@@ -179,4 +182,41 @@ html {
 .focus-ring:focus {
   outline: 2px solid #ff6600;
   outline-offset: 2px;
+}
+
+/* Accent circle used in hero */
+.hero-accent {
+  position: absolute;
+  width: 420px;
+  height: 420px;
+  border-radius: 9999px;
+  filter: blur(60px);
+  opacity: 0.12;
+  background: radial-gradient(circle at 30% 30%, #ffedd5 0%, #fb923c 40%, #f97316 100%);
+  z-index: 0;
+}
+
+/* small helper to ensure highlighted service boxes stand out */
+.service-highlight {
+  border: 2px solid rgba(249, 115, 22, 1); /* orange-500 */
+  box-shadow: 0 20px 40px rgba(249,115,22,0.08), 0 6px 12px rgba(0,0,0,0.06);
+  transform: translateY(0);
+  transition: transform .25s ease, box-shadow .25s ease;
+}
+.service-highlight:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 30px 60px rgba(249,115,22,0.12), 0 8px 18px rgba(0,0,0,0.08);
+}
+
+.hero-font {
+  font-family: "Playfair Display", serif;
+}
+
+.hero-subfont {
+  font-family: "Montserrat", sans-serif;
+  letter-spacing: 0.01em;
+}
+
+.hero-typography {
+  text-shadow: 0 8px 30px rgba(0,0,0,0.45);
 }

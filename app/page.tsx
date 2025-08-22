@@ -1,5 +1,4 @@
 "use client"
-
 import { useState } from "react"
 import { motion, useScroll, useTransform } from "framer-motion"
 import { Phone, MapPin, Star, Zap, Home, Wrench, Shield, Camera, CheckCircle, Menu, X } from "lucide-react"
@@ -27,6 +26,11 @@ export default function ShriRamElectricService() {
       title: "New Wiring for Flats",
       description: "Complete electrical wiring solutions for residential and commercial properties up to 2500+ sq. ft.",
     },
+      {
+      icon: <Zap className="w-8 h-8" />,
+      title: "Specialist Wiring",
+      description: "Expert wiring services for clubs, bars, hotels, and commercial establishments",
+    },
     {
       icon: <Wrench className="w-8 h-8" />,
       title: "Appliance Repair",
@@ -43,11 +47,7 @@ export default function ShriRamElectricService() {
       title: "CCTV & Security Setup",
       description: "Professional CCTV camera installation and security system setup for homes and businesses",
     },
-    {
-      icon: <Zap className="w-8 h-8" />,
-      title: "Specialist Wiring",
-      description: "Expert wiring services for clubs, bars, hotels, and commercial establishments",
-    },
+  
   ]
 
   const promises = [
@@ -160,79 +160,88 @@ export default function ShriRamElectricService() {
 
       {/* Hero Section */}
       <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden">
+        {/* Accent circle */}
+        <div className="hero-accent hidden lg:block" />
+
+        {/* Video background (autoplay, muted, loop, playsInline) */}
         <motion.div style={{ y }} className="absolute inset-0 z-0">
-          <img
-            src="/placeholder-o5e53.png"
-            alt="Professional electrical services"
+          <video
+            autoPlay
+            muted
+            loop
+            playsInline
             className="w-full h-full object-cover"
-          />
-          <div className="absolute inset-0 bg-black/50"></div>
+            // put your video file at /public/hero-video.mp4
+          >
+            <source src="/Electrician_Video_Generation_Request (1) - Trim.mp4" type="video/mp4" />
+            {/* Fallback image */}
+            <img
+              src="/homepagehero.png"
+              alt="Professional electrical services"
+              className="w-full h-full object-cover"
+            />
+          </video>
+
+          {/* subtle dark overlay so text remains readable but still light */}
+          <div className="absolute inset-0 bg-black/30" />
         </motion.div>
 
-        <div className="relative z-10 text-center text-white max-w-4xl mx-auto px-4">
-          <motion.h1
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="text-4xl md:text-6xl font-bold mb-4"
-          >
-            <span className="block text-orange-400">Powering Mira-Bhayander</span>
-            <span className="block">for Over 12 Years</span>
-          </motion.h1>
-
-          <motion.h2
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            className="text-2xl md:text-3xl font-semibold mb-6"
-          >
-            Shri Ram Electric Service
-          </motion.h2>
-
-          <motion.p
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.4 }}
-            className="text-lg md:text-xl mb-8 max-w-2xl mx-auto"
-          >
-            Your trusted electrical service provider with 12+ years of experience in residential and commercial
-            electrical solutions.
-          </motion.p>
-
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.6 }}
-            className="flex flex-col sm:flex-row gap-4 justify-center"
-          >
-            <a
-              href="tel:8425856456"
-              className="bg-orange-600 hover:bg-orange-700 text-white px-8 py-4 rounded-lg text-lg font-semibold transition-all transform hover:scale-105 inline-flex items-center justify-center"
+        <div className="relative z-10 max-w-4xl mx-auto px-4 text-center">
+          <div className="flex flex-col items-center justify-center gap-6 py-20">
+            <motion.h1
+              initial={{ opacity: 0, y: -8 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8 }}
+              className="hero-font text-4xl md:text-6xl font-extralight leading-tight text-white/90"
             >
-              <Phone className="w-5 h-5 mr-2" />📞 Call Us Now
-            </a>
-            <button
-              onClick={() => scrollToSection("contact")}
-              className="bg-transparent border-2 border-white hover:bg-white hover:text-gray-900 text-white px-8 py-4 rounded-lg text-lg font-semibold transition-all transform hover:scale-105"
-            >
-              Get a Quote
-            </button>
-          </motion.div>
+              <span className="  font-bold block bg-clip-text text-transparent bg-gradient-to-r from-yellow-200 via-orange-300 to-white">
+                SHREE RAM ELECRIC SERVICE 
+              </span>
+            </motion.h1>
 
-          {/* Rating */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.8 }}
-            className="mt-8 flex items-center justify-center space-x-2"
-          >
-            <div className="flex space-x-1">
-              {[...Array(5)].map((_, i) => (
-                <Star key={i} className="w-5 h-5 fill-yellow-400 text-yellow-400" />
-              ))}
-            </div>
-            <span className="text-lg font-semibold">5.03 ⭐ Google Reviews</span>
-          </motion.div>
+            <motion.p
+              initial={{ opacity: 0, y: -4 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.9, delay: 0.08 }}
+              className="hero-subfont text-lg md:text-2xl text-white/80 max-w-2xl mx-auto font-light"
+            >
+              Serving Mira-Bhayander Since 2013 — Expert sales, service & repairs for all your electrical needs.
+            </motion.p>
+
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.9, delay: 0.16 }}
+              className="flex flex-col sm:flex-row gap-4 items-center justify-center mt-4"
+            >
+              <a
+                href="tel:8425856456"
+                className="bg-orange-600/90 hover:bg-orange-700/95 text-white px-6 py-3 rounded-lg text-lg font-semibold transition-all transform hover:scale-105 inline-flex items-center justify-center"
+              >
+                <Phone className="w-5 h-5 mr-2" /> Call Us Now
+              </a>
+              <button
+                onClick={() => scrollToSection("contact")}
+                className="bg-white/10 border border-white/20 hover:bg-white hover:text-gray-900 text-white px-6 py-3 rounded-lg text-lg font-medium transition-all"
+              >
+                Get a Quote
+              </button>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 1, delay: 0.3 }}
+              className="mt-6 flex items-center space-x-3 justify-center"
+            >
+              <div className="flex space-x-1">
+                {[...Array(5)].map((_, i) => (
+                  <Star key={i} className="w-5 h-5 fill-yellow-400 text-yellow-400" />
+                ))}
+              </div>
+              <span className="text-white/85 font-medium">4.7 ⭐ Google Reviews</span>
+            </motion.div>
+          </div>
         </div>
 
         {/* Scroll Indicator */}
@@ -240,7 +249,7 @@ export default function ShriRamElectricService() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 1.2 }}
-          className="absolute bottom-8 left-1/2 transform -translate-x-1/2"
+          className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-20"
         >
           <motion.div
             animate={{ y: [0, 10, 0] }}
@@ -271,19 +280,39 @@ export default function ShriRamElectricService() {
             </p>
           </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {services.slice(0, 5).map((service, index) => (
+          {/* Top: two highlighted, centered */}
+          <div className="max-w-4xl mx-auto grid grid-cols-1 sm:grid-cols-2 gap-6 justify-items-center items-stretch">
+            {services.slice(0, 2).map((service, index) => (
               <motion.div
                 key={index}
-                initial={{ opacity: 0, y: 30 }}
+                initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-                whileHover={{ y: -5 }}
-                className="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-all"
+                transition={{ duration: 0.6, delay: index * 0.08 }}
+                whileHover={{ y: -6 }}
+                className="w-full service-highlight rounded-xl bg-white p-6"
+                style={{ maxWidth: 520 }}
               >
                 <div className="text-orange-600 mb-4">{service.icon}</div>
                 <h3 className="text-xl font-semibold text-gray-900 mb-2">{service.title}</h3>
                 <p className="text-gray-600">{service.description}</p>
+              </motion.div>
+            ))}
+          </div>
+
+          {/* Bottom: remaining services (3 boxes) */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-10">
+            {services.slice(2).map((service, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: index * 0.08 }}
+                whileHover={{ y: -8, scale: 1.02 }}
+                className="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-all"
+              >
+                <div className="text-orange-600 mb-4">{service.icon}</div>
+                <h3 className="text-xl font-semibold text-gray-900 mb-3">{service.title}</h3>
+                <p className="text-gray-600 leading-relaxed">{service.description}</p>
               </motion.div>
             ))}
           </div>
@@ -349,9 +378,9 @@ export default function ShriRamElectricService() {
               className="relative"
             >
               <img
-                src="/electrician-sanjay-shukla.png"
+                src="/dadphoto.png"
                 alt="Sanjay Shukla - Founder of Shri Ram Electric Service"
-                className="w-full h-auto rounded-xl shadow-lg"
+                className="w-full h-1/3  rounded-xl shadow-lg"
               />
               <div className="absolute -bottom-6 -right-6 bg-orange-600 text-white p-4 rounded-xl shadow-lg">
                 <div className="text-center">
@@ -367,9 +396,9 @@ export default function ShriRamElectricService() {
       {/* Services Section */}
       <section id="services" className="py-16 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div
+          <motion.div 
             initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            whileInView={{ opacity: 1, y: 0 }} 
             transition={{ duration: 0.8 }}
             className="text-center mb-12"
           >
@@ -559,7 +588,7 @@ export default function ShriRamElectricService() {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
               <div className="bg-gray-100 rounded-lg overflow-hidden shadow-lg">
                 <iframe
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3764.123456789!2d72.8567890!3d19.3012345!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTnCsDE4JzA0LjQiTiA3MsKwNTEnMjQuNCJF!5e0!3m2!1sen!2sin!4v1234567890"
+                  src="https://maps.google.com/maps?width=600&amp;height=400&amp;hl=en&amp;q=maharana pratap road bhayander west&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"
                   width="100%"
                   height="300"
                   style={{ border: 0 }}
@@ -576,7 +605,7 @@ export default function ShriRamElectricService() {
 
               <div className="bg-gray-100 rounded-lg overflow-hidden shadow-lg">
                 <iframe
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3764.123456789!2d72.8567890!3d19.3012345!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTnCsDE4JzA0LjQiTiA3MsKwNTEnMjQuNCJF!5e0!3m2!1sen!2sin!4v1234567890"
+                  src="https://maps.google.com/maps?width=600&amp;height=400&amp;hl=en&amp;q=radha raman building, bhayander west&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"
                   width="100%"
                   height="300"
                   style={{ border: 0 }}
