@@ -641,7 +641,7 @@ export default function ShriRamElectricService() {
                   <Star key={i} className="w-4 h-4 fill-yellow-400 text-yellow-400" />
                 ))}
               </div>
-              <p className="text-sm text-gray-400">5.03 ⭐ Google Reviews</p>
+              <p className="text-sm text-gray-400">4.7 Google Reviews</p>
             </div>
 
             <div>
